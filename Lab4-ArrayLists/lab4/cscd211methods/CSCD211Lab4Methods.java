@@ -25,7 +25,18 @@ public class CSCD211Lab4Methods
     */
    public static void addNum(final ArrayList<Double> myAList, final Scanner kb)
    {
-  	  myAList.trimToSize();
+      if (kb == null || myAList == null){
+         throw new IllegalArgumentException("array list or scanner cannot be null");
+      }
+      System.out.println("please enter a number between 0 and a 100:");
+      double inp = -1;
+      do {
+         inp = Double.parseDouble(kb.nextLine());
+         if (inp >= 0 && inp <= 100) {
+            myAList.add(inp);
+         }
+      }while(inp < 0 || inp > 100);
+      myAList.trimToSize();
 
    }// end addNum
 
