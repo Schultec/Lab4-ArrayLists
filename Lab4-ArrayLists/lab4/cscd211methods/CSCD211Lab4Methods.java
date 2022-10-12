@@ -59,7 +59,13 @@ public class CSCD211Lab4Methods
       if (myAList.size() == 0){
          throw new IllegalArgumentException("array size cannot be 0");
       }
-      return 1;
+      int size = myAList.size();
+      double total = 0, fin = 0;
+      for (int i = 0; i <= size; ++i){
+         total = total + myAList.get(i);
+      }
+      fin = total/size;
+      return fin;
    }
 
    /**
