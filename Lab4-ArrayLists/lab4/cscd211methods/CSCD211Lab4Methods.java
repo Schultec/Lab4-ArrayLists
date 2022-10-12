@@ -341,6 +341,7 @@ public class CSCD211Lab4Methods
       if (type == " "){
          throw new IllegalArgumentException("type cannot be empty");
       }
+      System.out.println(type + ": " + value);
 
    }// end printResults
 
@@ -359,7 +360,10 @@ public class CSCD211Lab4Methods
       if (kb == null){
          throw new IllegalArgumentException("scanner cannot be null");
       }
-      return 1;
+      int inp = Integer.parseInt(kb.nextLine());
+      if (inp > 0) {
+         return inp;
+      }
    }// end readNum
 
    /**
