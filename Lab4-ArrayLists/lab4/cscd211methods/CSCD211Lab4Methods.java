@@ -240,6 +240,9 @@ public class CSCD211Lab4Methods
       if (myAList.size() < 1){
          throw new IllegalArgumentException("array size cannot be less than one");
       }
+      for (int i = 0; i < size; ++i){
+         myAList.add(Math.random() * 100);
+      }
 
    }// end fillArrayList
 
