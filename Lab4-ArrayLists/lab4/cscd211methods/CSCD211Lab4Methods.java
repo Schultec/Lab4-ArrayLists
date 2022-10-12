@@ -220,8 +220,11 @@ public class CSCD211Lab4Methods
       }
       if (!(myAList.isEmpty())) {
          if (myAList.size() - 1 > 0) {
-            myAList.remove(Integer.parseInt(kb.nextLine()));
-            myAList.trimToSize();
+            int inp = Integer.parseInt(kb.nextLine());
+            if (inp >= 0 && inp <= (myAList.size() - 1)) {
+               myAList.remove(inp);
+               myAList.trimToSize();
+            }
          }
       }
 
