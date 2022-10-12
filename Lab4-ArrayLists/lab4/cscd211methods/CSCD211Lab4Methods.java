@@ -53,6 +53,12 @@ public class CSCD211Lab4Methods
     */
    public static double computeMean(final ArrayList<Double> myAList)
    {
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() == 0){
+         throw new IllegalArgumentException("array size cannot be 0");
+      }
       return 1;
    }
 
@@ -84,7 +90,12 @@ public class CSCD211Lab4Methods
     */
    public static double computeMedian(final ArrayList<Double> myAList)
    {
-
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() == 0){
+         throw new IllegalArgumentException("array size cannot be 0");
+      }
       return 1;
    }// end computeMedian
 
@@ -104,7 +115,12 @@ public class CSCD211Lab4Methods
     */
    public static double computeMidpoint(final ArrayList<Double> myAList)
    {
-
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() == 0){
+         throw new IllegalArgumentException("array size cannot be 0");
+      }
       return 2.0;
 
    }// end computeMidPoint
@@ -126,6 +142,12 @@ public class CSCD211Lab4Methods
     */
    public static double computeStandardDeviation(final ArrayList<Double> myAList)
    {
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() == 0){
+         throw new IllegalArgumentException("array size cannot be 0");
+      }
 
 
 	   return 0.0;
@@ -152,7 +174,12 @@ public class CSCD211Lab4Methods
     */
    public static void deleteValue(final ArrayList<Double> myAList,final Scanner kb)
    {
-
+      if (myAList == null || kb == null){
+         throw new IllegalArgumentException("arraylist and scanner cannot be null");
+      }
+      if (myAList.size() < 1){
+         throw new IllegalArgumentException("array size cannot be less than one");
+      }
 
 
 
@@ -179,7 +206,12 @@ public class CSCD211Lab4Methods
     */
    public static void deleteValueByIndex(final ArrayList<Double> myAList,final Scanner kb)
    {
-
+      if (myAList == null || kb == null){
+         throw new IllegalArgumentException("arraylist and scanner cannot be null");
+      }
+      if (myAList.size() < 1){
+         throw new IllegalArgumentException("array size cannot be less than one");
+      }
 
    }// end deleteValueByIndex
 
@@ -196,7 +228,12 @@ public class CSCD211Lab4Methods
     */
    public static void fillArrayList(final int size, final ArrayList<Double> myAList)
    {
-
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() < 1){
+         throw new IllegalArgumentException("array size cannot be less than one");
+      }
 
    }// end fillArrayList
 
@@ -280,6 +317,12 @@ public class CSCD211Lab4Methods
     */
    public static void printResults(final String type, final double value)
    {
+      if (type == null){
+         throw new IllegalArgumentException("type cannot be null");
+      }
+      if (type == " "){
+         throw new IllegalArgumentException("type cannot be empty");
+      }
 
    }// end printResults
 
@@ -295,6 +338,9 @@ public class CSCD211Lab4Methods
     */
    public static int readNum(final Scanner kb)
    {
+      if (kb == null){
+         throw new IllegalArgumentException("scanner cannot be null");
+      }
       return 1;
    }// end readNum
 
