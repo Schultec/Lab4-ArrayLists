@@ -25,7 +25,18 @@ public class CSCD211Lab4Methods
     */
    public static void addNum(final ArrayList<Double> myAList, final Scanner kb)
    {
-  	  myAList.trimToSize();
+      if (kb == null || myAList == null){
+         throw new IllegalArgumentException("array list or scanner cannot be null");
+      }
+      System.out.println("please enter a number between 0 and a 100:");
+      double inp = -1;
+      do {
+         inp = Double.parseDouble(kb.nextLine());
+         if (inp >= 0 && inp <= 100) {
+            myAList.add(inp);
+         }
+      }while(inp < 0 || inp > 100);
+      myAList.trimToSize();
 
    }// end addNum
 
@@ -42,7 +53,19 @@ public class CSCD211Lab4Methods
     */
    public static double computeMean(final ArrayList<Double> myAList)
    {
-      return 1;
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() == 0){
+         throw new IllegalArgumentException("array size cannot be 0");
+      }
+      int size = myAList.size();
+      double total = 0, fin = 0;
+      for (int i = 0; i <= size; ++i){
+         total = total + myAList.get(i);
+      }
+      fin = total/size;
+      return fin;
    }
 
    /**
@@ -73,7 +96,12 @@ public class CSCD211Lab4Methods
     */
    public static double computeMedian(final ArrayList<Double> myAList)
    {
-
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() == 0){
+         throw new IllegalArgumentException("array size cannot be 0");
+      }
       return 1;
    }// end computeMedian
 
@@ -93,7 +121,12 @@ public class CSCD211Lab4Methods
     */
    public static double computeMidpoint(final ArrayList<Double> myAList)
    {
-
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() == 0){
+         throw new IllegalArgumentException("array size cannot be 0");
+      }
       return 2.0;
 
    }// end computeMidPoint
@@ -115,6 +148,12 @@ public class CSCD211Lab4Methods
     */
    public static double computeStandardDeviation(final ArrayList<Double> myAList)
    {
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() == 0){
+         throw new IllegalArgumentException("array size cannot be 0");
+      }
 
 
 	   return 0.0;
@@ -141,7 +180,12 @@ public class CSCD211Lab4Methods
     */
    public static void deleteValue(final ArrayList<Double> myAList,final Scanner kb)
    {
-
+      if (myAList == null || kb == null){
+         throw new IllegalArgumentException("arraylist and scanner cannot be null");
+      }
+      if (myAList.size() < 1){
+         throw new IllegalArgumentException("array size cannot be less than one");
+      }
 
 
 
@@ -168,7 +212,12 @@ public class CSCD211Lab4Methods
     */
    public static void deleteValueByIndex(final ArrayList<Double> myAList,final Scanner kb)
    {
-
+      if (myAList == null || kb == null){
+         throw new IllegalArgumentException("arraylist and scanner cannot be null");
+      }
+      if (myAList.size() < 1){
+         throw new IllegalArgumentException("array size cannot be less than one");
+      }
 
    }// end deleteValueByIndex
 
@@ -185,7 +234,12 @@ public class CSCD211Lab4Methods
     */
    public static void fillArrayList(final int size, final ArrayList<Double> myAList)
    {
-
+      if (myAList == null){
+         throw new IllegalArgumentException("arraylist cannot be null");
+      }
+      if (myAList.size() < 1){
+         throw new IllegalArgumentException("array size cannot be less than one");
+      }
 
    }// end fillArrayList
 
@@ -269,6 +323,12 @@ public class CSCD211Lab4Methods
     */
    public static void printResults(final String type, final double value)
    {
+      if (type == null){
+         throw new IllegalArgumentException("type cannot be null");
+      }
+      if (type == " "){
+         throw new IllegalArgumentException("type cannot be empty");
+      }
 
    }// end printResults
 
@@ -284,6 +344,9 @@ public class CSCD211Lab4Methods
     */
    public static int readNum(final Scanner kb)
    {
+      if (kb == null){
+         throw new IllegalArgumentException("scanner cannot be null");
+      }
       return 1;
    }// end readNum
 
