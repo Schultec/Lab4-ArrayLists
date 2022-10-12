@@ -218,6 +218,12 @@ public class CSCD211Lab4Methods
       if (myAList.size() < 1){
          throw new IllegalArgumentException("array size cannot be less than one");
       }
+      if (!(myAList.isEmpty())) {
+         if (myAList.size() - 1 > 0) {
+            myAList.remove(Integer.parseInt(kb.nextLine()));
+            myAList.trimToSize();
+         }
+      }
 
    }// end deleteValueByIndex
 
