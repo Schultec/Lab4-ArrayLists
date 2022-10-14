@@ -61,10 +61,10 @@ public class CSCD211Lab4Methods
       }
       int size = myAList.size();
       double total = 0, fin = 0;
-      for (int i = 0; i <= size; ++i){
+      for (int i = 0; i < size; ++i){
          total = total + myAList.get(i);
       }
-      fin = total/size;
+      fin = total/(size+1);
       return fin;
    }
 
@@ -102,7 +102,15 @@ public class CSCD211Lab4Methods
       if (myAList.size() == 0){
          throw new IllegalArgumentException("array size cannot be 0");
       }
-      return 1;
+      Collections.sort(myAList);
+      if (myAList.size() % 2 == 1){
+         return myAList.get(myAList.size() / 2);
+      }else {
+         int index1 = myAList.size() / 2;
+         int index2 = index1 - 1;
+         double val = (myAList.get(index1)) + (myAList.get(index2)) / myAList.size();
+         return val;
+      }
    }// end computeMedian
 
    /**
@@ -127,7 +135,11 @@ public class CSCD211Lab4Methods
       if (myAList.size() == 0){
          throw new IllegalArgumentException("array size cannot be 0");
       }
-      return 2.0;
+      Collections.sort(myAList);
+      double val1 = myAList.get(0);
+      double val2 = myAList.get(myAList.size() - 1);
+      double fin  = (val1 + val2) / 2;
+      return fin;
 
    }// end computeMidPoint
 
@@ -154,9 +166,18 @@ public class CSCD211Lab4Methods
       if (myAList.size() == 0){
          throw new IllegalArgumentException("array size cannot be 0");
       }
+      int i;
+      double total = 0;
+      double mean = computeMean(myAList);
+      ArrayList<Double> deviations = null;
+      deviations = new ArrayList<Double>(myAList.size());
+      for (i = 0; i < myAList.size(); ++i){
+         deviations.add(Math.pow((myAList.get(i)- mean), 2));
+         total = deviations.get(i) + total;
+      }
+      double fin = Math.sqrt((total/(deviations.size() - 1)));
 
-
-	   return 0.0;
+      return fin;
    }
 
    /**
@@ -186,9 +207,16 @@ public class CSCD211Lab4Methods
       if (myAList.size() < 1){
          throw new IllegalArgumentException("array size cannot be less than one");
       }
-
-
-
+      double inp = Double.parseDouble(kb.nextLine());
+      if(inp <= 100 && inp >= 0) {
+         if (myAList.indexOf(inp) > 0) {
+            myAList.remove(myAList.indexOf(inp));
+            myAList.trimToSize();
+            System.out.println("value " + inp + " deleted.");
+         } else {
+            System.out.println("value does not exist");
+         }
+      }
    }// end deleteValue
 
 
@@ -218,15 +246,18 @@ public class CSCD211Lab4Methods
       if (myAList.size() < 1){
          throw new IllegalArgumentException("array size cannot be less than one");
       }
-      if (!(myAList.isEmpty())) {
-         if (myAList.size() - 1 > 0) {
-            int inp = Integer.parseInt(kb.nextLine());
-            if (inp >= 0 && inp <= (myAList.size() - 1)) {
-               myAList.remove(inp);
-               myAList.trimToSize();
+      int inp = -1;
+      do {
+         if (!(myAList.isEmpty())) {
+            if (myAList.size() - 1 > 0) {
+               inp = Integer.parseInt(kb.nextLine());
+               if (inp >= 0 && inp <= (myAList.size() - 1)) {
+                  myAList.remove(inp);
+                  myAList.trimToSize();
+               }
             }
          }
-      }
+      }while(inp <= 0 || inp >= (myAList.size() - 1));
 
    }// end deleteValueByIndex
 
@@ -246,11 +277,11 @@ public class CSCD211Lab4Methods
       if (myAList == null){
          throw new IllegalArgumentException("arraylist cannot be null");
       }
-      if (myAList.size() < 1){
-         throw new IllegalArgumentException("array size cannot be less than one");
-      }
       for (int i = 0; i < size; ++i){
          myAList.add(Math.random() * 100);
+      }
+      if (myAList.size() < 1){
+         throw new IllegalArgumentException("array size cannot be less than one");
       }
 
    }// end fillArrayList
@@ -360,10 +391,12 @@ public class CSCD211Lab4Methods
       if (kb == null){
          throw new IllegalArgumentException("scanner cannot be null");
       }
-      int inp = Integer.parseInt(kb.nextLine());
-      if (inp > 0) {
-         return inp;
-      }
+      int num;
+      do {
+         System.out.println("please enter an integer greater than 0: ");
+         num = Integer.parseInt(kb.nextLine());
+      }while (num < 1);
+      return num;
    }// end readNum
 
    /**
