@@ -207,6 +207,7 @@ public class CSCD211Lab4Methods
       if (myAList.size() < 1){
          throw new IllegalArgumentException("array size cannot be less than one");
       }
+      System.out.println("please enter a value between 1 and 100 to delete");
       double inp = Double.parseDouble(kb.nextLine());
       if(inp <= 100 && inp >= 0) {
          if (myAList.indexOf(inp) > 0) {
@@ -248,6 +249,7 @@ public class CSCD211Lab4Methods
       }
       int inp = -1;
       do {
+         System.out.println("please enter a index value between 0 and " + myAList.size());
          if (!(myAList.isEmpty())) {
             if (myAList.size() - 1 > 0) {
                inp = Integer.parseInt(kb.nextLine());
